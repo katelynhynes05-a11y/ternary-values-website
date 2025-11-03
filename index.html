@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <title>Values Over Time</title>
+</head>
+<body style="font-family: Arial; margin: 40px;">
+
+<h1>Values Comparison: Today vs 2075</h1>
+<p>Axes represent: <strong>Equality</strong>, <strong>Innovation</strong>, <strong>Ethics</strong></p>
+
+<h2>Today</h2>
+<div id="todayPlot" style="width:600px;height:500px;"></div>
+
+<h2>Future (2075)</h2>
+<div id="futurePlot" style="width:600px;height:500px;"></div>
+
+<script>
+const todayData = {
+  type: 'scatterternary',
+  mode: 'markers',
+  a: [40, 50, 45], // Equality
+  b: [35, 30, 40], // Innovation
+  c: [25, 20, 15], // Ethics
+  marker: { size: 10 },
+  name: "Today"
+};
+
+const futureData = {
+  type: 'scatterternary',
+  mode: 'markers',
+  a: [30, 35, 25], // Equality
+  b: [50, 45, 60], // Innovation
+  c: [20, 20, 15], // Ethics
+  marker: { size: 10 },
+  name: "2075"
+};
+
+const layoutToday = {
+  ternary: {
+    sum: 100,
+    aaxis: { title: "Equality" },
+    baxis: { title: "Innovation" },
+    caxis: { title: "Ethics" }
+  },
+  title: "Today"
+};
+
+const layoutFuture = {
+  ternary: {
+    sum: 100,
+    aaxis: { title: "Equality" },
+    baxis: { title: "Innovation" },
+    caxis: { title: "Ethics" }
+  },
+  title: "2075"
+};
+
+Plotly.newPlot('todayPlot', [todayData], layoutToday);
+Plotly.newPlot('futurePlot', [futureData], layoutFuture);
+</script>
+
+</body>
+</html>
